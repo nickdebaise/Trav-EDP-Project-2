@@ -196,15 +196,11 @@ app.get("/api/planet/:id/characters", async (req, res) => {
 
         const client = await MongoClient.connect(url);
         const db = client.db(dbName);
-        const collection = db.collection("films_planets");
-        const planetFilm = await collection.find({ planet_id: parseInt(id)}).sort({"film_id":1}).toArray()
-        const ids = planetFilm.map(films =>  films.film_id)
-        const filmcollection = db.collection("films");
-        const planetMovie = await filmcollection.find({ id: {"$in": ids} }).sort({"id":1}).toArray()
-        console.log(planetFilm)
+        const charCollect = db.collection("characters");
+        const charHomeworld = await charCollect.find({ homeworld: parseInt (id) }).sort({"id":1}).toArray()
 
 
-        res.json(planetMovie);
+        res.json(charHomeworld);
 
     } catch (err) {
         console.error("Error: ", err);
