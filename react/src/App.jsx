@@ -7,6 +7,8 @@ import {
   Routes,
   Link
 } from "react-router-dom";
+import Film from './components/Film';
+import Planet from './components/Planet';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={(<CharacterList search={""} />)} />
           <Route exact path="/characters/:id" element={(<Character />)} />
+          <Route exact path= "/films/:id" element={(<Film/>)}/>
+          <Route exact path= "/planets/:id" element={(<Planet/>)}/>
         </Routes>
       </Router>
     </div>

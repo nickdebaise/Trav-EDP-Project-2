@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Character = () => {
     const { id } = useParams();
+    const Navigate = useNavigate();
     const [character, setCharacter] = useState();
     const [planet, setPlanet] = useState();
     const [films, setFilms] = useState();
@@ -57,14 +58,14 @@ const Character = () => {
             </section>
             <section id="planets">
                 <h2>Homeworld</h2>
-                <a><span id="homeworld">{planet.name}</span></a>
+                <a onClick={()=>{Navigate('/planets/'+ planet.id)}} ><span id="homeworld">{planet.name}</span></a>
             </section>
             <section id="films">
                 <h2>Films appeared in</h2>
                 <ul>
                     {films.map(film => {
                         return (
-                            <a>
+                            <a onClick={()=>{Navigate('/films/'+ film.id)}}>
                                 {film.title}
                             </a>
                         )
