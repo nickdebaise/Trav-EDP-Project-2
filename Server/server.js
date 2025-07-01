@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Middleware to parse JSON bodies
-
+app.use(express.static('./public'))
 app.get("/api/planets", async (req, res) => {
     try {
 
