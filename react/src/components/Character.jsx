@@ -34,7 +34,6 @@ const Character = () => {
         fetch(`http://localhost:3001/api/characters/${id}/films`)
             .then(resp => resp.json())
             .then(result => {
-                console.log(result)
                 setFilms(result)
             })
             .catch(errs => console.error(errs))
@@ -58,14 +57,14 @@ const Character = () => {
             </section>
             <section id="planets">
                 <h2>Homeworld</h2>
-                <a onClick={()=>{Navigate('/planets/'+ planet.id)}} ><span id="homeworld">{planet.name}</span></a>
+                <a onClick={() => { Navigate('/planets/' + planet.id) }} ><span id="homeworld">{planet.name}</span></a>
             </section>
             <section id="films">
                 <h2>Films appeared in</h2>
                 <ul>
                     {films.map(film => {
                         return (
-                            <a onClick={()=>{Navigate('/films/'+ film.id)}}>
+                            <a key={film.id} onClick={() => { Navigate('/films/' + film.id) }}>
                                 {film.title}
                             </a>
                         )

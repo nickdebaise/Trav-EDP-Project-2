@@ -50,13 +50,23 @@ const Film = () => {
         <main>
             <h1 id="name">{film.title}</h1>
 
+            <section id="generalInfo">
+                <p>Opening Crawl: <span id="Opening Crawl">{film.opening_crawl}</span></p>
+
+                <p>Director: <span id="Director">
+                    {film.director}</span></p>
+                <p>Episode ID: <span id="Episode ID">
+                    {film.episode_id}</span> </p>
+                <p>Producer: <span id="Producer">{film.producer} </span></p>
+                <p>Release Date: <span id="Release Date">{film.release_date} </span></p>
+            </section>
 
             <section id="planets">
                 <h2>Planets</h2>
                 <ul>
                     {planets.map(planet => {
                         return (
-                            <a onClick={()=>{Navigate('/planets/'+ planet.id)}}>
+                            <a key={planet.id} onClick={() => { Navigate('/planets/' + planet.id) }}>
                                 {planet.name}
                             </a>
                         )
@@ -69,7 +79,7 @@ const Film = () => {
                 <ul>
                     {characters.map(character => {
                         return (
-                            <a onClick={()=>{Navigate('/characterss/'+ character.id)}}>
+                            <a key={character.id} onClick={() => { Navigate('/characters/' + character.id) }}>
                                 {character.name}
                             </a>
                         )

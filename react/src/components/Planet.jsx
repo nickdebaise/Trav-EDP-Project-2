@@ -50,12 +50,41 @@ const Planet = () => {
         <main>
             <h1 id="name">{planet.name}</h1>
 
+            <section id="planet_view">
+                <ul>
+                    <li>
+                        <p>Climate: <span id="climate">{planet.climate}</span></p>
+                    </li>
+                    <li>
+                        <p>Diameter: <span id="diameter">{planet.diameter}</span></p>
+                    </li>
+                    <li>
+                        <p>Gravity: <span id="gravity">{planet.gravity}</span></p>
+                    </li>
+                    <li>
+                        <p>Orbital period: <span id="orbital_period">{planet.orbital_period}</span></p>
+                    </li>
+                    <li>
+                        <p>Rotation Period: <span id="rotation_period">{planet.rotation_period}</span></p>
+                    </li>
+                    <li>
+                        <p>Terrain: <span id="terrain">{planet.terrain}</span></p>
+                    </li>
+                    <li>
+                        <p>Surface Water: <span id="surface_water">{planet.surface_water}</span></p>
+                    </li>
+                    <li>
+                        <p>Population: <span id="population">{planet.population}</span></p>
+                    </li>
+                </ul>
+            </section>
+
             <section id="films">
                 <h2>Films</h2>
                 <ul>
                     {films.map(film => {
                         return (
-                            <a onClick={()=>{Navigate('/films/'+ film.id)}}>
+                            <a key={film.id} onClick={() => { Navigate('/films/' + film.id) }}>
                                 {film.title}
                             </a>
                         )
@@ -68,7 +97,7 @@ const Planet = () => {
                 <ul>
                     {characters.map(character => {
                         return (
-                            <a onClick={()=>{Navigate('/characters/'+ character.id)}}>
+                            <a key={character.id} onClick={() => { Navigate('/characters/' + character.id) }}>
                                 {character.name}
                             </a>
                         )
